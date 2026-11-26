@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Quality Mega Mart - Grocery & Mart Storefront</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Announcement Strip -->
+    <div class="announcement-strip">
+        <span>🎉 Free Delivery on orders above Rs. 2000! | Open 24/7</span>
+    </div>
+
+    <!-- Store Header -->
+    <header class="store-header">
+        <div class="header-content">
+            <div class="header-top">
+                <div class="logo-area">
+                    <h1>Quality Mega Mart</h1>
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Open for Delivery</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Search -->
+            <div class="search-container">
+                <div class="search-box">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" id="productSearch" placeholder="Search for products (e.g. Atta, Oil)..." autocomplete="off">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Banner -->
+        <section class="hero-banner">
+            <div class="hero-content">
+                <h2>Freshness Delivered to Your Doorstep</h2>
+                <p>Order daily essentials, snacks, and more via WhatsApp.</p>
+            </div>
+        </section>
+
+        <!-- Category Filters -->
+        <section class="category-filters-wrapper">
+            <div class="category-filters" id="categoryFilters">
+                <!-- Pills injected by JS -->
+            </div>
+        </section>
+
+        <!-- Product Grid -->
+        <section class="product-section">
+            <div id="productGrid" class="product-grid">
+                <!-- Product cards or skeleton loaders injected by JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Cart Pill -->
+    <div id="cartPill" class="cart-pill hidden">
+        <div class="cart-pill-content">
+            <div class="cart-info">
+                <span id="cartCount">0</span> Items | <span id="cartTotal">Rs. 0</span>
+            </div>
+            <div class="view-cart-btn">View Order</div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="modal-overlay hidden">
+        <div class="modal-content product-detail-card">
+            <button class="close-modal">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal-overlay hidden">
+        <div class="modal-content cart-detail-card">
+            <button class="close-modal">&times;</button>
+            <div class="cart-header">
+                <h2>Your Order</h2>
+            </div>
+            <div id="cartItemsList" class="cart-items-list">
+                <!-- Items injected by JS -->
+            </div>
+            <div class="cart-summary" id="cartSummary">
+                <!-- Summary injected by JS -->
+            </div>
+            <div class="customer-form">
+                <h3>Delivery Details</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Mobile / WhatsApp Number</label>
+                        <input type="tel" id="mobile" placeholder="e.g. 03001234567">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="address">Delivery Address</label>
+                        <textarea id="address" placeholder="House #, Street, Area, City"></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Payment Method</label>
+                        <div class="payment-options">
+                            <label class="radio-option">
+                                <input type="radio" name="payment" value="Cash on Delivery" checked>
+                                <span>Cash on Delivery</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="payment" value="EasyPaisa / JazzCash">
+                                <span>EasyPaisa / JazzCash</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="instructions">Order Instructions (Optional)</label>
+                        <textarea id="instructions" placeholder="Any special instructions for delivery..."></textarea>
+                    </div>
+                </div>
+                <button id="confirmOrder" class="btn-confirm">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-1.019 3.733 3.834-1.005c.904.508 1.839.865 2.934.865 3.182 0 5.767-2.586 5.768-5.766 0-3.18-2.585-5.765-5.768-5.765zm4.535 8.136c-.191.538-1.111 1.01-1.523 1.056-.359.041-.823.059-1.336-.104-.325-.104-1.36-.453-2.316-1.304-.739-.659-1.239-1.47-1.387-1.728-.148-.259-.013-.399.13-.526.129-.114.259-.313.389-.469.129-.156.173-.259.259-.432.087-.173.044-.324-.021-.454-.066-.13-.592-1.428-.811-1.956-.213-.515-.431-.446-.592-.454-.153-.008-.33-.009-.508-.009-.178 0-.466.067-.711.336-.245.27-.934.914-.934 2.228s.956 2.58 1.089 2.758c.133.179 1.882 2.874 4.559 4.026.637.274 1.135.438 1.524.562.64.204 1.222.175 1.682.107.513-.077 1.577-.645 1.801-1.266.225-.62.225-1.151.157-1.266-.068-.114-.249-.182-.533-.324z"/>
+                    </svg>
+                    Confirm Order on WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="menuData.js"></script>
+    <script src="storageService.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
